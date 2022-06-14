@@ -1,0 +1,31 @@
+@use "src/styles/functions" as f;
+@import "src/styles/variables";
+
+.container {
+  height: f.rem(60px);
+  border-bottom: 1px solid #3a3a3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $main-size;
+  height: 100%;
+  position: relative;
+}
+
+.timer {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.heading {
+  margin: 0;
+  font-weight: 900;
+}

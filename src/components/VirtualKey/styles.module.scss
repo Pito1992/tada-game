@@ -1,0 +1,29 @@
+@use "src/styles/functions" as f;
+@import "src/styles/variables";
+
+.container {
+  width: f.rem(44px);
+  height: f.rem(58px);
+  font-family: inherit;
+  font-weight: bold;
+  padding: 0;
+  margin: 3px;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  border: 0;
+  text-transform: uppercase;
+  background-color: $color-key-of-keyboard;
+  color: $color-dark;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+
+  &.fluidWidth {
+    width: auto;
+    flex: 1;
+    white-space: nowrap;
+  }
+}

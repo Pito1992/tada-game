@@ -1,0 +1,41 @@
+@import 'src/styles/variables';
+
+@font-face {
+  font-family: $font-family-primary;
+  font-weight: 100;
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Light.eot');
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Light.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/Oswald/Oswald-Light.woff2') format('woff2'), 
+    url('#{$font-path}/Oswald/Oswald-Light.woff') format('woff'),
+    url('#{$font-path}/Oswald/Oswald-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font-family-primary;
+  font-weight: 400;
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Regular.eot');
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Regular.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/Oswald/Oswald-Regular.woff2') format('woff2'), 
+    url('#{$font-path}/Oswald/Oswald-Regular.woff') format('woff'),
+    url('#{$font-path}/Oswald/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font-family-primary;
+  font-weight: 600;
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Medium.eot');
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Medium.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/Oswald/Oswald-Medium.woff2') format('woff2'), 
+    url('#{$font-path}/Oswald/Oswald-Medium.woff') format('woff'),
+    url('#{$font-path}/Oswald/Oswald-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font-family-primary;
+  font-weight: 900;
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Bold.eot');
+  src: local('#{$font-family-primary}'), url('#{$font-path}/Oswald/Oswald-Bold.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/Oswald/Oswald-Bold.woff2') format('woff2'), 
+    url('#{$font-path}/Oswald/Oswald-Bold.woff') format('woff'),
+    url('#{$font-path}/Oswald/Oswald-Bold.ttf') format('truetype');
+}

@@ -1,0 +1,19 @@
+@import 'src/styles/variables';
+@import 'src/styles/fonts';
+@import 'normalize.css';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-primary, $font-family-secondary, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
