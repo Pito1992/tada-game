@@ -1,5 +1,6 @@
 @use "src/styles/functions" as f;
 @import "src/styles/variables";
+@import "src/styles/keyframes";
 
 .container {
   width: f.rem(64px);
@@ -16,13 +17,18 @@
   user-select: none;
   color: $color-dark;
   background-color: $color-light;
-  border: 1px solid $color-gray;
-
+  border: 1px solid $color-gray-1;
+  
   &[data-state] {
     color: $color-light;
   }
+  &[data-state="tbd"] {
+    color: $color-dark;
+    outline: 2px solid $color-gray-2;
+    outline-offset: -2px;
+  }
   &[data-state="absent"] {
-    background-color: $color-gray;
+    background-color: $color-gray-1;
   }
   &[data-state="present"] {
     background-color: $color-yellow;
@@ -32,6 +38,20 @@
     background-color: $color-green;
     border-color: $color-green;
   }
+
+  &.animation {
+    animation-name: PopIn;
+    animation-duration: 100ms;
+  }
 }
 
-// 'absent' | 'present' | 'correct';
+// .tile[data-animation='flip-in'] {
+//   animation-name: FlipIn;
+//   animation-duration: 250ms;
+//   animation-timing-function: ease-in;
+// }
+// .tile[data-animation='flip-out'] {
+//   animation-name: FlipOut;
+//   animation-duration: 250ms;
+//   animation-timing-function: ease-in;
+// }

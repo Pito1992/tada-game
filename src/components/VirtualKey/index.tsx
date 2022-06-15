@@ -1,9 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { SPECIAL_KEY } from 'src/constants';
-
+import { SPECIAL_KEY, WORD_TILE_STATE } from 'src/constants';
+import type { RootState } from 'src/redux/interfaces';
+import { wordTileAccumulatorSelector } from 'src/redux/wordTile/selectors';
 import { ReactComponent as IconBackSpace } from 'src/assets/images/backspace.svg';
-
 import styles from './styles.module.scss';
 
 const SPECIAL_KEY_MAPPING = {
@@ -14,6 +15,11 @@ const SPECIAL_KEY_MAPPING = {
 interface IVirtualKeyProps extends React.HTMLAttributes<HTMLButtonElement> {
   isSpecialKey?: boolean;
   value: string;
+  actions?: {
+    onPressAlphabet: (value: string) => void;
+    onPressEnter: () => void;
+    onPressCancel: () => void;
+  },
 }
 
 function VirtualKeyComp({
@@ -21,18 +27,21 @@ function VirtualKeyComp({
   className,
   children,
   isSpecialKey,
+  actions,
   ...restProps
 }: IVirtualKeyProps): JSX.Element {
-  const handleKeyClick = () => {
+  const accumulator = useSelector<RootState, any>(wordTileAccumulatorSelector);
+  const state = accumulator[value.toLowerCase()];
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     switch (value) {
       case SPECIAL_KEY.BTN_ENTER:
-        console.log(SPECIAL_KEY.BTN_ENTER)
+        actions?.onPressEnter();
         break;
       case SPECIAL_KEY.BTN_CANCEL:
-        console.log(SPECIAL_KEY.BTN_CANCEL)
+        actions?.onPressCancel();
         break;
       default:
-        console.log(value)
+        actions?.onPressAlphabet(value);
         break;
     }
   }
@@ -40,8 +49,9 @@ function VirtualKeyComp({
   return (
     <button className={classNames(styles.container, {
       [styles.fluidWidth]: isSpecialKey,
+      [styles[state]]: state
     }, className)}
-      onClick={handleKeyClick}
+      onClick={onClick}
       {...restProps}
     >
       {isSpecialKey

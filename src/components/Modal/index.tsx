@@ -10,12 +10,16 @@ import styles from './styles.module.scss';
 interface IModalProps extends React.HTMLAttributes<HTMLDivElement> {
   visible?: boolean;
   onClose?: () => void;
+  header?: React.ReactNode;
+  body?: React.ReactNode;
 }
 
 function ModalComp({
   className,
   visible = false,
   onClose,
+  header,
+  body,
   ...restProps
 }: IModalProps): JSX.Element | null {
   const handleOnClose = React.useCallback(() => {;
@@ -32,12 +36,14 @@ function ModalComp({
           <IconClose />
         </Button>
         <div className={styles.inner}>
-          <div className={styles.body}>
+          {header && <div className={styles.header}>{header}</div>}
+          {body && <div className={styles.body}>
+            {body}
             <Button className={styles.btnShare}>
               Share
               <IconShare />
             </Button>
-          </div>
+          </div>}
         </div>
       </div>
     </Portal>

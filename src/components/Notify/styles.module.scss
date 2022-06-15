@@ -1,0 +1,24 @@
+@use "src/styles/functions" as f;
+@import "src/styles/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: fixed;
+  top: f.rem(84px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notify {
+  line-height: 1.5;
+  background-color: $color-dark;
+  color: $color-light;
+  border-radius: $border-radius-small;
+  padding: f.rem(8px) f.rem(16px);
+  font-size: f.rem(18px);
+  margin-bottom: f.rem(12px);
+}

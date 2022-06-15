@@ -17,7 +17,13 @@ function WordTileComp({
 }: IWordTileProps): JSX.Element {
   return (
     <div
-      className={classNames(styles.container, className)}
+      className={classNames(
+        styles.container,
+        {
+          [styles.animation]: children
+        },
+        className
+      )}
       {...(state && { 'data-state': state })}
       {...restProps}
     >

@@ -26,4 +26,17 @@
     flex: 1;
     white-space: nowrap;
   }
+
+  &.absent {
+    color: $color-light;
+    background-color: $color-gray-1;
+  }
+  &.present {
+    color: $color-light;
+    background-color: $color-yellow;
+  }
+  &.correct {
+    color: $color-light;
+    background-color: $color-green;
+  }
 }

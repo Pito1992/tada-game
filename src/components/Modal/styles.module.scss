@@ -31,6 +31,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  line-height: 1.5;
 
   .btnClose {
     position: absolute;
@@ -54,6 +55,7 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0.3);
     font-size: f.rem(20px);
     padding: f.rem(12px) f.rem(38px);
+    margin: f.rem(12px) auto;
 
     > svg {
       margin-left: f.rem(4px);
@@ -61,9 +63,11 @@
   }
 }
 
+.header {
+  text-align: center;
+  margin-bottom: f.rem(12px);
+}
+
 .body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: f.rem(96px);
 }
