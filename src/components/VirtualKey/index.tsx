@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { SPECIAL_KEY, WORD_TILE_STATE } from 'src/constants';
+import { SPECIAL_KEY } from 'src/constants';
 import type { RootState } from 'src/redux/interfaces';
 import { wordTileAccumulatorSelector } from 'src/redux/wordTile/selectors';
 import { ReactComponent as IconBackSpace } from 'src/assets/images/backspace.svg';

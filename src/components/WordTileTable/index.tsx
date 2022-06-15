@@ -21,7 +21,6 @@ function WordTileTableComp({
   const dispatch = useDispatch();
   const wordTileArr = useSelector<RootState, WordTileTable>(wordTileDataSelector);
 
-
   React.useEffect(() => {
     dispatch(createNewGame());
   }, [dispatch]);

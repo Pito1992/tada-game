@@ -1,17 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { formatTimer } from 'src/utils';
-
+import { createNewGame } from 'src/redux/wordTile/actions';
 import styles from './styles.module.scss';
 
 interface ICountDownTimerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const COUNT_DOWN_TIMER = 330;
+const COUNT_DOWN_TIMER = 600;
 const MIN_TO_SEC = 60;
 
 function CountDownTimerComp({
   className
 }: ICountDownTimerProps): JSX.Element {
+  const dispatch = useDispatch();
   const [timer, setTimer] = React.useState<number>(COUNT_DOWN_TIMER);
   const second = timer % MIN_TO_SEC;
   const minute = (timer - second) / MIN_TO_SEC;
@@ -21,14 +23,15 @@ function CountDownTimerComp({
       if (timer) {
         setTimer(timer - 1);
       } else {
-        clearTimeout(timeOutId);
+        dispatch(createNewGame());
+        setTimer(COUNT_DOWN_TIMER);
       }
     }, 1000);
 
     return () => {
       clearTimeout(timeOutId);
     }
-  }, [timer]);
+  }, [dispatch, timer]);
 
   return (
     <div className={classNames(styles.container, className)}>

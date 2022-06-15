@@ -9,7 +9,6 @@ import {
   WORD_LIST, WORD_TILE_TABLE, WORD_TILE_STATE,
   ERROR_NOT_ENOUGH_LETTERS,
   ERROR_NOT_IN_WORD_LIST,
-  WORD_TILE_STATE_EMOJI,
 } from 'src/constants';
 import { getWordTileState } from 'src/utils';
 import type { IWordTileState } from './interfaces';
@@ -32,10 +31,12 @@ export const initialState: IWordTileState = {
 const wordTileReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(createNewGame, (state, action) => ({
-      ...state,
-      error: undefined,
-      loading: false,
+      ...initialState,
       ...action.payload,
+      metadata: {
+        ...initialState.metadata,
+        ...action.payload.metadata,
+      }
     }))
     .addCase(updateCharToWordTileRow, (state, action) => {
       const { data } = current(state);
